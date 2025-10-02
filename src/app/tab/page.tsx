@@ -15,7 +15,37 @@ import Link from "next/link";
 export default function TabPage() {
   const [context, setContext] = useState<microsoftTeams.app.Context>();
   const [isInitialized, setIsInitialized] = useState(false);
+  // const [user, setUser] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);
+  // async function getUserInfo() {
+  //   const token = await microsoftTeams.authentication.getAuthToken({
+  //     silent: true,
+  //   });
+
+  //   const decoded = jwtDecode(token);
+  //   console.log("Decoded token:", decoded);
+
+  //   return decoded;
+  // }
+  // const ALLOWED_TENANT = "e353d4f5-f2b4-4e28-a7d5-912c8c9d84fe"; // чиний company tenantId
+
+  // async function checkTenant() {
+  //   try {
+  //     const decoded = (await getUserInfo()) as { tid: string; name: string };
+
+  //     if (decoded.tid !== ALLOWED_TENANT) {
+  //       // ❌ Зөв tenant биш → error гаргах эсвэл UI дээр block хийх
+  //       throw new Error("This app is only available for your organization.");
+  //     }
+
+  //     // ✅ зөв tenant → үргэлжлүүлэх
+  //     console.log("User allowed:", decoded.name);
+  //     return decoded;
+  //   } catch (err) {
+  //     console.error(err);
+  //     return null;
+  //   }
+  // }
 
   useEffect(() => {
     const initTeams = async () => {
@@ -27,6 +57,10 @@ export default function TabPage() {
 
         // Notify Teams
         microsoftTeams.app.notifySuccess();
+
+        // checkTenant()
+        //   .then((u) => setUser(u))
+        //   .catch((err) => setError(err.message));
       } catch (err) {
         console.error("Failed to initialize Teams:", err);
         setError(err instanceof Error ? err.message : "Failed to initialize");

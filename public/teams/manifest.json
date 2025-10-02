@@ -48,7 +48,7 @@
   ],
   "webApplicationInfo": {
     "id": "7da1e712-7e45-491d-ab57-908860a6f4c1",
-    "resource": "api://7da1e712-7e45-491d-ab57-908860a6f4c1"
+    "resource": "api://grayce-tergal-woolly.ngrok-free.dev/7da1e712-7e45-491d-ab57-908860a6f4c1"
   },
   "devicePermissions": ["notifications", "openExternal"],
   "permissions": ["identity", "messageTeamMembers"],

@@ -19,18 +19,15 @@ export default function DialogPage() {
   useEffect(() => {
     const initTeams = async () => {
       try {
-        const token = await microsoftTeams.authentication.getAuthToken({
-          resources: ["api://7da1e712-7e45-491d-ab57-908860a6f4c1"],
-          silent: true,
-        });
+        await microsoftTeams.app.initialize();
+        const ctx = await microsoftTeams.app.getContext();
+        setContext(ctx);
+        setIsInitialized(true);
 
-        const res = await fetch("https://graph.microsoft.com/v1.0/me", {
-          headers: { Authorization: `Bearer ${token}` },
-        });
-        const profile = await res.json();
-        console.log("User profile:", profile);
+        // Notify Teams
+        microsoftTeams.app.notifySuccess();
       } catch (err) {
-        console.error("Failed to get auth token:", err);
+        console.error("Failed to initialize Teams:", err);
         setError(err instanceof Error ? err.message : "Failed to initialize");
       }
     };
@@ -69,7 +66,7 @@ export default function DialogPage() {
   return (
     <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-4 text-3xl text-red-500">
       dialog displayName:
-      {context!.user?.displayName}
+      {context!.user?.userPrincipalName}
     </div>
   );
 }
