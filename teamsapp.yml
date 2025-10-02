@@ -1,0 +1,29 @@
+version: 1.0.0
+
+provision:
+  - uses: teamsApp/create
+    with:
+      name: Next.js Teams App
+    writeToEnvironmentFile:
+      teamsAppId: TEAMS_APP_ID
+
+  - uses: aadApp/create
+    with:
+      name: Next.js Teams App AAD
+      generateClientSecret: true
+    writeToEnvironmentFile:
+      clientId: AAD_APP_CLIENT_ID
+      clientSecret: SECRET_AAD_APP_CLIENT_SECRET
+
+deploy:
+  - uses: cli/runNpmCommand
+    with:
+      args: install
+
+  - uses: cli/runNpmCommand
+    with:
+      args: run build
+
+  - uses: teamsApp/update
+    with:
+      appPackagePath: ./public/teams/teams-app.zip

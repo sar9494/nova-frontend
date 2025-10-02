@@ -1,0 +1,59 @@
+{
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.16/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.16",
+  "version": "1.0.0",
+  "id": "acc99902-10bc-4415-9ae8-cbbf180de201",
+  "packageName": "com.teams.nextjs.app",
+  "developer": {
+    "name": "TechPack",
+    "websiteUrl": "https://grayce-tergal-woolly.ngrok-free.dev",
+    "privacyUrl": "https://grayce-tergal-woolly.ngrok-free.dev/privacy",
+    "termsOfUseUrl": "https://grayce-tergal-woolly.ngrok-free.dev/terms"
+  },
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "name": {
+    "short": "Nova ",
+    "full": "Nova application"
+  },
+  "description": {
+    "short": "Teams app built with Next.js",
+    "full": "A Microsoft Teams application built with Next.js and React"
+  },
+  "accentColor": "#FFFFFF",
+  "staticTabs": [
+    {
+      "entityId": "d257d92b-108e-4e0d-bd07-a829865d9001",
+      "name": "Home",
+      "contentUrl": "https://grayce-tergal-woolly.ngrok-free.dev/tab",
+      "websiteUrl": "https://grayce-tergal-woolly.ngrok-free.dev/tab",
+      "scopes": ["personal"]
+    },
+    {
+      "entityId": "c8e2e8df-dc4e-4fed-ab1b-63c3c8639b96",
+      "name": "Chat",
+      "contentUrl": "https://grayce-tergal-woolly.ngrok-free.dev/chat",
+      "websiteUrl": "https://grayce-tergal-woolly.ngrok-free.dev/chat",
+      "scopes": ["personal"]
+    }
+  ],
+  "configurableTabs": [
+    {
+      "configurationUrl": "https://grayce-tergal-woolly.ngrok-free.dev/config",
+      "canUpdateConfiguration": true,
+      "scopes": ["team", "groupchat"]
+    }
+  ],
+  "webApplicationInfo": {
+    "id": "7da1e712-7e45-491d-ab57-908860a6f4c1",
+    "resource": "api://7da1e712-7e45-491d-ab57-908860a6f4c1"
+  },
+  "devicePermissions": ["notifications", "openExternal"],
+  "permissions": ["identity", "messageTeamMembers"],
+  "validDomains": [
+    "grayce-tergal-woolly.ngrok-free.dev",
+    "login.microsoftonline.com"
+  ]
+}
